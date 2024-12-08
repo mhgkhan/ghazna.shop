@@ -8,7 +8,6 @@ const Menu = () => {
         <div className='text-xl bg-white border border-t border-t-2 border-t-gray-200 sticky bottom-0'>
             <div className="container mx-auto">
                 <div className=" menu-area  p-1 flex items-center justify-center gap-5">
-
                     {
                         Array.from([
                             { text: "Home", icon: <FaHome className="text-2xl text-black" />, link:"/" },
@@ -26,8 +25,6 @@ const Menu = () => {
                             </Link>
                         })
                     }
-
-
                 </div>
             </div>
         </div>
