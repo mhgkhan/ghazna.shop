@@ -6,7 +6,7 @@ import { Titillium_Web, Abel } from 'next/font/google'
 import Menu from "@/components/ui/Menu";
 
 export const headingFont = Titillium_Web({
-  weight: ["200", "400", "600", "900"],
+  weight: ["200", "400", "600"],
   subsets: ["latin"]
 })
 
