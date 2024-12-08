@@ -1,16 +1,20 @@
-import localFont from "next/font/local";
+
+import Header from "@/components/ui/Header";
 import "./globals.css";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Titillium_Web, Abel } from 'next/font/google'
+import Menu from "@/components/ui/Menu";
+
+export const headingFont = Titillium_Web({
+  weight: ["200", "400", "600", "900"],
+  subsets: ["latin"]
+})
+
+const AbelFont = Abel({
+  weight: ["400"],
+  subsets: ["latin"]
+})
+
 
 export const metadata = {
   title: "Create Next App",
@@ -21,9 +25,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${AbelFont.className} antialiased`}
       >
+        <Header />
         {children}
+        {/* <div className="h-[80vh] overflow-auto">
+        </div> */}
+        <Menu />
       </body>
     </html>
   );

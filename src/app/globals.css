@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+.menu-item:hover.menu-item *{
+    color: orangered !important;
+}
