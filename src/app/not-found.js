@@ -12,17 +12,17 @@ export default function NotFound() {
         <p className="text-xl text-gray-600 mb-6">
           It seems we couldn’t find the page you're looking for.
         </p>
-        {/* Illustration or Error Image */}
+        {/* Illustration or Error Image
         <img 
           src="/404-image.svg" 
           alt="Page Not Found" 
           className="w-80 h-auto mb-6"
-        />
+        /> */}
         {/* Suggestions */}
         <p className="text-lg text-gray-500 mb-4">
           Don't worry! Here's what you can do:
         </p>
-        <div className="space-y-4">
+        <div className="space-y-4 space-x-2 ">
           <Link href="/" passHref>
             <button className="bg-orange-500 text-white px-6 py-3 rounded-full hover:bg-orange-600 transition duration-300">
               Go Back to Home
