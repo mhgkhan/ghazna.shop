@@ -1,4 +1,4 @@
-import Link from 'next/link'
+
 import React from 'react'
 import { FaHome, FaSearch, FaRegHeart, FaCartArrowDown, FaRegUser } from "react-icons/fa"
 
@@ -17,12 +17,12 @@ const Menu = () => {
                             { text: "Profile", icon: <FaRegUser className="text-2xl text-black" /> , link:"/profile"},
 
                         ]).map((ele, ind) => {
-                            return <Link key={ind} href={ele.link}>
+                            return <a key={ind} href={ele.link}>
                                 <div  className="menu-item p-1 cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-300 flex flex-col items-center justify-center menu-item w-[45px] rounded-[20px 20px 5px 5px]" style={{ borderRadius: "20px 20px 5px 5px" }} >
                                 {ele.icon}
                                 <span className='text-center text-black text-sm'>{ele.text}</span>
                             </div>
-                            </Link>
+                            </a>
                         })
                     }
                 </div>
