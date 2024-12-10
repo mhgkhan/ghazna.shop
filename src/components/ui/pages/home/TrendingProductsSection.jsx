@@ -62,7 +62,7 @@ const TrendingProductsSection = () => {
         
           
           {
-            products && products.length < 1 ? "Products not avaliable" : 
+            products && products.length < 1 ? "Loading products..." : 
             products && products.map((ele,ind)=>{
               return<ProductCard key={ind} title={ele.title} price={ele.price}  image={ele.image} ratings={ele.rating.count} />
             })
