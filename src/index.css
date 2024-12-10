@@ -5,7 +5,7 @@
 
 
 
-.items-container::-webkit-scrollbar{
+.items-container::-webkit-scrollbar, .trendingProdCatButtons::-webkit-scrollbar{
     display: none !important;
 }
 

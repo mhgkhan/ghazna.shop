@@ -5,7 +5,7 @@ import { FaHome, FaSearch, FaRegHeart, FaCartArrowDown, FaRegUser } from "react-
 
 const Menu = () => {
     return (
-        <div className='text-xl bg-white border border-t border-t-2 border-t-gray-200 sticky bottom-0'>
+        <div className=' z-50 text-xl bg-white border border-t border-t-2 border-t-gray-200 sticky bottom-0'>
             <div className="container mx-auto">
                 <div className=" menu-area  p-1 flex items-center justify-center gap-5">
                     {
