@@ -1,6 +1,7 @@
 
 import CategoriesSection from "../components/ui/pages/home/CategoriesSection";
 import Hero from "../components/ui/pages/home/Hero";
+import TrendingProductsSection from "../components/ui/pages/home/TrendingProductsSection";
 import WelcomeMessage from "../components/ui/pages/home/WelcomeMessage";
 
 export default function Home() {
@@ -14,14 +15,7 @@ export default function Home() {
           <WelcomeMessage />
           <Hero />
           <CategoriesSection />
-          <Hero />
-          <CategoriesSection />
-          <Hero />
-          <CategoriesSection />
-
-
-
-
+          <TrendingProductsSection />
 
         </div>
 

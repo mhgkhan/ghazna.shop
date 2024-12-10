@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import CategoryItem from './CategoryItem'
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { useRef } from 'react';
+import HeadingSection from './HeadingSection';
 
 const CategoriesSection = () => {
 
@@ -18,10 +19,7 @@ const CategoriesSection = () => {
 
     return (
         <section className='w-full'>
-            <header className='flex w-full items-center justify-between md:my-5 my-3'>
-                <h2 className="text-2xl font-bold">Categories </h2>
-                <Link to={'/'} className="text-lg text-black hover:text-orange-500 transition-all duration-300 hover:underline ">See all  </Link>
-            </header>
+            <HeadingSection heading={"Categories"} link={'/'} linktext={'See All'} />
 
 
             <div className="items-parent flex items-center justify-between w-full">
