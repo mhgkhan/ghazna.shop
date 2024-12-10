@@ -9,7 +9,7 @@ const Hero = () => {
             </div>
 
             <div className="image w-[35%] md:w-[50%] md:px-10 relative md:scale-[1] ">
-                <img width={300} height={200} alt="product picture" src={"https://th.bing.com/th/id/R.66459278341bddfed30c782bd30a8aa7?rik=uIdUpHdp4tDETg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpurse-transparent-background%2fpurse-transparent-background-9.png&ehk=aa3IPZyw3wsPQpEs70tEI%2bBM9fGCXdFZAfWQg79Kp4Q%3d&risl=&pid=ImgRaw&r=0"}
+                <img width={250} height={150} alt="product picture" src={"https://th.bing.com/th/id/R.66459278341bddfed30c782bd30a8aa7?rik=uIdUpHdp4tDETg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2fpurse-transparent-background%2fpurse-transparent-background-9.png&ehk=aa3IPZyw3wsPQpEs70tEI%2bBM9fGCXdFZAfWQg79Kp4Q%3d&risl=&pid=ImgRaw&r=0"}
                     className="float-right md:scale-[1]"
                 />
             </div>
