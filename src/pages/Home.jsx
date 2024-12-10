@@ -14,6 +14,10 @@ export default function Home() {
           <WelcomeMessage />
           <Hero />
           <CategoriesSection />
+          <Hero />
+          <CategoriesSection />
+          <Hero />
+          <CategoriesSection />
 
 
 
