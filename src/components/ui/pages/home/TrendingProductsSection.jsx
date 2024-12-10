@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import HeadingSection from './HeadingSection'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import ProductCard from '../../../cards/ProductCard'
@@ -6,7 +6,13 @@ import ProductCard from '../../../cards/ProductCard'
 
 const TrendingProductsSection = () => {
 
+
+
+
   const scrollContainerRef = useRef()
+
+  const [products,setProducts] = useState([])
+
 
   const forwardScroll = () => {
     scrollContainerRef.current.scrollBy(150, 0)
@@ -15,6 +21,20 @@ const TrendingProductsSection = () => {
     scrollContainerRef.current.scrollBy(-150, 0)
 
   }
+
+
+  useEffect(()=>{
+
+    const fetchproduct = async ()=>{
+      const request = await fetch(`https://fakestoreapi.com/products`);
+      const response = await request.json();
+      setProducts(response)
+    }
+
+    fetchproduct()
+
+
+  },[])
 
 
   return (
@@ -40,14 +60,13 @@ const TrendingProductsSection = () => {
 
       <div className=" my-5 homeProductsContanier flex items-center flex-wrap justify-center gap-5">
         
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
-        <ProductCard />
+          
+          {
+            products && products.length < 1 ? "Products not avaliable" : 
+            products && products.map((ele,ind)=>{
+              return<ProductCard key={ind} title={ele.title} price={ele.price}  image={ele.image} ratings={ele.rating.count} />
+            })
+          }
 
      
 
