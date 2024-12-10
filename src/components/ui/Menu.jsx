@@ -4,6 +4,10 @@ import { FaHome, FaSearch, FaRegHeart, FaCartArrowDown, FaRegUser } from "react-
 
 
 const Menu = () => {
+
+        
+
+
     return (
         <div className=' z-50 text-xl bg-white border border-t border-t-2 border-t-gray-200 sticky bottom-0'>
             <div className="container mx-auto">

@@ -26,7 +26,7 @@ const TrendingProductsSection = () => {
         <div ref={scrollContainerRef} className="trendingProdCatButtons flex gap-3 w-full md:w-[90%] scroll-smooth mx-auto overflow-auto overflow-x-scroll">
           {
             Array.from(["All","Man","Woman","Tshirts","Shoes","Bigs","Books","Baby","Balls","Cloths","Pockets","All","Man","Woman","Tshirts","Shoes","Bigs","Books","Baby","Balls","Cloths","Pockets"]).map((ele,ind)=>{
-              return <button key={ind} className="rounded-md bg-black text-white mx-1 font-bold py-2 px-2">{ele}</button>
+              return <button key={ind} className="rounded-md tracking-widest bg-black text-white mx-1 font-bold py-2 px-2">{ele}</button>
             })
           }
         </div>
