@@ -49,6 +49,11 @@ const TrendingProductsSection = () => {
           <IoIosArrowBack />
         </div>
         <div ref={scrollContainerRef} className="trendingProdCatButtons flex gap-3 w-full md:w-[90%] scroll-smooth mx-auto overflow-auto overflow-x-scroll">
+        <button onClick={async ()=>{
+                // await fetchproduct();
+                setProducts(filterProducts)
+              }} className="rounded-md tracking-widest  bg-black text-white mx-1 font-bold py-2 px-2">All</button>
+          
           {
             Array.from(new Set(filterProducts.map(prod=>prod.category))).map((ele, ind) => {
               return <button onClick={async ()=>{
