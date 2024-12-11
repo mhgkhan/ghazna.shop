@@ -13,7 +13,7 @@ const TrendingProductsSection = () => {
   const scrollContainerRef = useRef()
 
   const [products, setProducts] = useState([])
-
+  const [filterProducts,setFilterProducts] = useState([])
 
   const forwardScroll = () => {
     scrollContainerRef.current.scrollBy(150, 0)
@@ -23,14 +23,16 @@ const TrendingProductsSection = () => {
 
   }
 
+  const fetchproduct = async () => {
+    const request = await fetch(`https://fakestoreapi.com/products`);
+    const response = await request.json();
+    setProducts(response)
+    setFilterProducts(response)
+  }
+
+
 
   useEffect(() => {
-
-    const fetchproduct = async () => {
-      const request = await fetch(`https://fakestoreapi.com/products`);
-      const response = await request.json();
-      setProducts(response)
-    }
 
     fetchproduct()
 
@@ -48,8 +50,11 @@ const TrendingProductsSection = () => {
         </div>
         <div ref={scrollContainerRef} className="trendingProdCatButtons flex gap-3 w-full md:w-[90%] scroll-smooth mx-auto overflow-auto overflow-x-scroll">
           {
-            Array.from(["All", "Man", "Woman", "Tshirts", "Shoes", "Bigs", "Books", "Baby", "Balls", "Cloths", "Pockets", "All", "Man", "Woman", "Tshirts", "Shoes", "Bigs", "Books", "Baby", "Balls", "Cloths", "Pockets"]).map((ele, ind) => {
-              return <button key={ind} className="rounded-md tracking-widest bg-black text-white mx-1 font-bold py-2 px-2">{ele}</button>
+            Array.from(new Set(filterProducts.map(prod=>prod.category))).map((ele, ind) => {
+              return <button onClick={async ()=>{
+                // await fetchproduct();
+                setProducts(filterProducts.filter(prod => prod.category == ele))
+              }} key={ind} className="rounded-md tracking-widest  bg-black text-white mx-1 font-bold py-2 px-2">{ele}</button>
             })
           }
         </div>
