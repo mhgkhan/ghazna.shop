@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import HeadingSection from './HeadingSection'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import ProductCard from '../../../cards/ProductCard'
+import Skeleton from 'react-loading-skeleton'
 
 
 const TrendingProductsSection = () => {
@@ -11,7 +12,7 @@ const TrendingProductsSection = () => {
 
   const scrollContainerRef = useRef()
 
-  const [products,setProducts] = useState([])
+  const [products, setProducts] = useState([])
 
 
   const forwardScroll = () => {
@@ -23,9 +24,9 @@ const TrendingProductsSection = () => {
   }
 
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    const fetchproduct = async ()=>{
+    const fetchproduct = async () => {
       const request = await fetch(`https://fakestoreapi.com/products`);
       const response = await request.json();
       setProducts(response)
@@ -34,7 +35,7 @@ const TrendingProductsSection = () => {
     fetchproduct()
 
 
-  },[])
+  }, [])
 
 
   return (
@@ -59,16 +60,16 @@ const TrendingProductsSection = () => {
 
 
       <div className=" my-5 homeProductsContanier flex items-center flex-wrap justify-center gap-5">
-        
-          
-          {
-            products && products.length < 1 ? "Loading products..." : 
-            products && products.map((ele,ind)=>{
-              return<ProductCard key={ind} title={ele.title} price={ele.price}  image={ele.image} ratings={ele.rating.count} />
-            })
-          }
 
-     
+
+        {
+          products && products.length < 1 ? <div className='w-[40px] h-[40px] mx-auto block my-5 border border-8 border-dotted border-black rounded-full transition-all duration-500 animate-spin'> </div>:
+            products && products.map((ele, ind) => {
+              return <ProductCard key={ind} title={ele.title} price={ele.price} image={ele.image} ratings={ele.rating.count} />
+            })
+        }
+
+
 
 
 
