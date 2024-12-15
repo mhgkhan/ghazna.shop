@@ -26,6 +26,7 @@ const TrendingProductsSection = () => {
   const fetchproduct = async () => {
     const request = await fetch(`https://dummyjson.com/products`);
     const response = await request.json();
+    
     setProducts(response.products)
     setFilterProducts(response.products)
   }
@@ -75,7 +76,7 @@ const TrendingProductsSection = () => {
         {
           products && products.length < 1 ? <div className='w-[40px] h-[40px] mx-auto block my-5 border border-8 border-dotted border-black rounded-full transition-all duration-500 animate-spin'> </div>:
             products && products.map((ele, ind) => {
-              return <ProductCard key={ind} title={ele.title} price={ele.price} image={ele.thumbnail} ratings={ele.rating.count} />
+              return <ProductCard id={ele.id} key={ind} title={ele.title} price={ele.price} image={ele.thumbnail} ratings={ele.rating.count} />
             })
         }
 
