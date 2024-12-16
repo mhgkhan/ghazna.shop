@@ -77,7 +77,8 @@ export const WishlistContextProvider = ({ children }) => {
         products,
         addProduct,
         removeProduct,
-        getProduct
+        getProduct,
+        fetchProducts
     }}>
         {children}
     </WishistContext.Provider>
