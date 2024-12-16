@@ -3,7 +3,7 @@ import {IoMdNotificationsOutline} from "react-icons/io"
 
 const Header = () => {
     return (
-        <header className='w-full bg-zinc-100 sticky top-0 z-50'>
+        <header className='w-full  sticky top-0 z-50 bg-white'>
             <div className="container mx-auto">
                 <div className="header-area flex items-center relative justify-between">
                     <div className="logo p-1 drop-shadow-md shadow-slate-400 flex items-center justify-center gap-1 cursor-pointer">

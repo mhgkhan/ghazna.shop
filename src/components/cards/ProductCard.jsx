@@ -25,7 +25,7 @@ const ProductCard = ({ image, title, price, ratings, index, id }) => {
 
     return (
 
-        <div className="product-card w-[140px] h-[250px] md:w-[250px] md:h-[350px] shadow-lg shadow-gray-200 rounded-lg relative bg-white">
+        <div className="product-card w-[140px] h-[250px] md:w-[250px] md:h-[330px] shadow-lg shadow-gray-200 rounded-lg relative bg-white">
             <div className="image w-full mx-auto rounded-md h-[100px] md:h-[200px] relative">
                 <img src={image} alt="" className='w-full h-full rounded-md object-cover md:object-contain' />
 
@@ -50,7 +50,7 @@ const ProductCard = ({ image, title, price, ratings, index, id }) => {
 
             <div className="content-area p-2 min-w-full">
 
-                <h3 className="product-card-title my-1 text-lg md:text-2xl">{title.length > 25 ? title.substring(0, 25) : title} </h3>
+                <h3 className="product-card-title my-1 text-lg md:text-xl">{title.length > 25 ? title.substring(0, 25) : title} </h3>
 
                 <div className="w-full flex items-center justify-start gap-2">
                     <span className="text-sm md:text-xl text-orange-700 font-bold">Rs.{price}</span>
