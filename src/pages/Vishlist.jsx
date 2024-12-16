@@ -31,37 +31,37 @@ const Vishlist = () => {
 
           {
             productsArr && productsArr.length<=0? <h3 className='text-2xl text-center mx-auto my-5 font-bold text-orange-700'><VscEmptyWindow /> Nothing in favorite!</h3>: productsArr && productsArr.map((ele, ind) => {
-              return  <div key={ind} className="my-2 bg-white h-[100px] shadow-md shadow-gray-200 rounded-md w-full flex items-center justify-between gap-2">
+              return  <div key={ind} className="my-2 bg-white h-[70px]  md:min-h-[100px] shadow-md shadow-gray-200 rounded-md w-full flex items-center justify-between gap-2">
 
               <div className="h-full item-imgandtitile flex items-center justify-center gap-4">
-                <img src={ele.image} alt="" className='h-full w-[100px] ' />
+                <img src={ele.image} alt="" className='h-full w-[70px] md:w-[100px] ' />
 
                 <div className="itemname">
-                  <p>Item name</p>
-                  <h4 className='text-xl font-bold'>{ele.title?.length > 20 ? ele.title.substring(0, 20) : ele.title}</h4>
+                  <p className='text-sm-md text-gray-600'>Item name</p>
+                  <h4 className='text-md md:text-xl font-bold'>{ele.title?.length > 20 ? ele.title.substring(0, 20) : ele.title}</h4>
                 </div>
               </div>
 
               <div className="item-price flex items-center justify-center flex-col">
-                <p>Category </p>
-                <h4 className="text-xl font-bold">Sports  </h4>
+                <p className='text-sm md:text-md text-gray-600'>Category </p>
+                <h4 className="text-md md:text-xl font-bold">Sports  </h4>
               </div>
 
 
 
               <div className="item-price flex items-center justify-center flex-col">
-                <p>Price</p>
-                <h4 className="text-xl font-bold">Rs.{ele.price} </h4>
+                <p className='text-sm md:text-md text-gray-600'>Price</p>
+                <h4 className="text-md md:text-xl font-bold">Rs.{ele.price} </h4>
               </div>
 
 
               <div className="item-actions flex items-center justify-center gap-4 flex-col mr-4 h-full">
-                <button className="bg-red-600 text-white font-bold px-2 p-2 rounded-lg border-none outline-none shadow-md shadow-red-800" onClick={() => {
+                <button className="bg-red-600 text-white font-bold p-1 md:p-2 rounded-lg border-none outline-none shadow-md shadow-red-800" onClick={() => {
                   removeProduct(ele.id, ind)
                   fetchProducts()
                   setProductsArr(products)
                 }}><FaTrash /> </button>
-                <button className="bg-blue-600 text-white font-bold px-2 p-2 rounded-lg border-none outline-none shadow-md shadow-blue-800"><GrLinkNext /> </button>
+                <button className="bg-blue-600 text-white font-bold p-1 md:p-2 rounded-lg border-none outline-none shadow-md shadow-blue-800"><GrLinkNext /> </button>
               </div>
 
 
