@@ -35,6 +35,7 @@ function App() {
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<Login />} />
           <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />} />
+          <Route path='/products/' element={<Login />} />
           <Route path='*' element={<ERRpage />} />
         </Routes>
         <Menu />
