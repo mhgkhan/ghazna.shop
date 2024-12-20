@@ -6,9 +6,7 @@ export const WishistContext = createContext();
 
 export const WishlistContextProvider = ({ children }) => {
 
-    // const [products, setProducts] = useState(localStorage.getItem("wishlistitems") ? Array.from(JSON.parse(localStorage.getItem("wishlistitems")).map((ele, obj) => ele)) : [])
 
-    // console.log(Array.isArray(products),);
 
     const [products, setProducts] = useState(null)
 
@@ -24,38 +22,33 @@ export const WishlistContextProvider = ({ children }) => {
 
 
     const addProduct = obj => {
+        // creating an copy of products state 
         let prevProducts = products;
         prevProducts.push(obj)
-
+        
         setProducts(prevProducts)
-
-        // console.log(typeof products)
-
-        // console.log('the products is', products)
         localStorage.setItem("wishlistitems", JSON.stringify(products));
     }
 
     const removeProduct = (id, index) => {
+        // creating an copy of products state 
         let prevProducts = products
-        // let prevProducts = []
-        // setProducts(prevProducts.splice(index, 1))
+        
         setProducts(prevProducts.forEach((ele, ind) => ele.id == id ? prevProducts.splice(ind, 1) : prevProducts))
-        console.log(prevProducts);
         localStorage.setItem("wishlistitems", JSON.stringify(products))
     }
-
-    const getProduct = id => {
-
+    
+    const checkProductIsSaveWishlist = id => {
+        
         if (products.length <= 0) return false;
         else {
+            // creating an copy of products state 
             const prev = products;
 
 
 
             const checExists = prev.map(ele => ele.id == id);
 
-
-            // console.log(checExists)
             if (checExists.includes(true)) {
                 return true;
             }
@@ -77,7 +70,7 @@ export const WishlistContextProvider = ({ children }) => {
         products,
         addProduct,
         removeProduct,
-        getProduct,
+        checkProductIsSaveWishlist,
         fetchProducts
     }}>
         {children}

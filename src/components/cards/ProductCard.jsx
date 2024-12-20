@@ -7,19 +7,18 @@ import { useWishlist } from '../../context/VishlistContext';
 const ProductCard = ({ image, title, price, ratings, index, id }) => {
 
 
-    const { addProduct, getProduct, removeProduct } = useWishlist();
+    const { addProduct, checkProductIsSaveWishlist, removeProduct } = useWishlist();
 
 
     const [fav, setFav] = useState()
 
 
-    const addtoFav = () => {
-        addProduct({ title, price, ratings, image, id });
-    }
+    const addtoFav = () => addProduct({ title, price, ratings, image, id });
 
     useEffect(() => {
         // console.log(getProduct(id))
-        setFav(getProduct(id))
+        setFav(checkProductIsSaveWishlist(id))
+        
     }, [ ])
 
 
