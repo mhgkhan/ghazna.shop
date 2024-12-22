@@ -14,7 +14,7 @@ const Login = () => {
         <div className="login-heading my-3 w-full p-2">
           <h2 className="text-3xl font-bold my-1"> Login    </h2>
           <p className="text-gray-600">Please login to your account to acces our features etc easily </p>
-          <p className='px-3 text-gray-800'>Already have an account <Link className=' text-blue-600' to={'/signup'}>Signup</Link> </p>
+          <p className='px-3 text-gray-800'>Already have an account <Link className=' text-blue-600' to={'/register'}>Register</Link> </p>
         </div>
 
         <form action="" className="mt-2 w-full py-2 px-4">

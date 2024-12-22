@@ -12,6 +12,7 @@ import { useContext, useState } from 'react'
 import Login from './pages/Login'
 import { Navigate } from "react-router-dom"
 import { useAppContext } from './context/AuthContext'
+import Register from './pages/Register'
 
 
 
@@ -33,7 +34,8 @@ function App() {
           <Route path='/search' element={<Search />} />
           <Route path='/wishlist' element={<Vishlist />} />
           <Route path='/cart' element={<Cart />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/register' element={token ? <Navigate to={'/profile'} /> : <Register />} />
+          <Route path='/login' element={token ? <Navigate to={'/profile'} /> : <Login />} />
           <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />} />
           <Route path='/products/' element={<Login />} />
           <Route path='*' element={<ERRpage />} />
