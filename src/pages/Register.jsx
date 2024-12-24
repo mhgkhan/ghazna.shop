@@ -1,4 +1,3 @@
-import React from 'react'
 import { BsGoogle } from 'react-icons/bs'
 import Or from '../components/ui/form/Or'
 import Input from '../components/ui/form/Input'
@@ -13,7 +12,7 @@ const Register = () => {
 
         <div className="login-heading my-3 w-full p-2">
           <h2 className="text-3xl font-bold my-1"> Create new account!    </h2>
-          <p className="text-gray-600"> Register your to acces your dashboard. </p>
+          <p className="text-gray-600"> Register your account to acces your dashboard. </p>
           <p className='px-3 text-gray-800'>Already have an account <Link className=' text-blue-600' to={'/login'}>Login </Link> </p>
         </div>
 
@@ -22,6 +21,8 @@ const Register = () => {
           <Input name={'email'} type={'email'} Icon={MdEmail} placeholder={"Enter email"} message={"Email"} required={true} />
           {/* password  */}
           <Input name={'password'} type={'password'} Icon={MdPassword} placeholder={"Password"} message={"Password"} required={true} />
+          {/* Confirm password  */}
+          <Input name={'confirmpassword'} type={'password'} Icon={MdPassword} placeholder={"Confirm password"} message={"Confirm password"} required={true} />
 
           <button className="hover:bg-white hover:text-orange-700 transition-all duration-300 hover:border-black text-lg w-full p-2 rounded-md text-center font-bold text-white bg-orange-700 my-3 outline-none border border-1 border-orange-400">
             Register

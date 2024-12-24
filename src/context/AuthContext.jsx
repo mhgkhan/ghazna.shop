@@ -13,11 +13,15 @@ export const AppContextProvider = ({ children }) => {
     const removeToken = () => setToken(localStorage.removeItem("authToken"))
 
 
+    useEffect(() => {
+        setToken(localStorage.getItem("authToken"))
+    }, [authToken])
     
 
     return <AppContext.Provider value={{
         token: authToken,
-        storeToken
+        storeToken,
+        removeToken
     }}>
         {children}
     </AppContext.Provider>
