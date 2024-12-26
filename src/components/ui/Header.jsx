@@ -1,7 +1,13 @@
 import React from 'react'
-import {IoMdNotificationsOutline} from "react-icons/io"
+import { BiLogOutCircle } from 'react-icons/bi'
+import { IoMdNotificationsOutline } from "react-icons/io"
+import { useAppContext } from '../../context/AuthContext'
 
 const Header = () => {
+
+    const { token, removeToken } = useAppContext();
+
+
     return (
         <header className='w-full  sticky top-0 z-50 bg-white'>
             <div className="container mx-auto">
@@ -14,9 +20,15 @@ const Header = () => {
                             SHOP
                         </div>
                     </div>
-                    <div className="notification-icon p-1 relative ">
-                        <IoMdNotificationsOutline className='text-3xl text-orange-600' />
-                        <span className='absolute top-0 rounded-full bg-orange-900 text-white left-4 w-[20px] h-[20px] flex items-center justify-center'>0</span>
+                    <div className="icons-area mr-2 flex items-center justify-center gap-5">
+                        <div className="notification-icon p-1 relative ">
+                            <IoMdNotificationsOutline className='text-3xl text-orange-600' />
+                            <span className='absolute top-0 rounded-full bg-orange-900 text-white left-4 w-[20px] h-[20px] flex items-center justify-center'>0</span>
+                        </div>
+                        {token ? <div onClick={removeToken} title='Logout' className="cursor-pointer hover:bg-red-800 active:bg-red-900 active:scale-90 notification-icon p-1 relative bg-red-500 rounded-md text-white">
+                            <BiLogOutCircle className='text-3xl rotate-180' />
+                            {/* <span className='absolute top-0 rounded-full bg-orange-900 text-white left-4 w-[20px] h-[20px] flex items-center justify-center'>0</span> */}
+                        </div> : ""}
                     </div>
                 </div>
             </div>

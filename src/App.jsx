@@ -13,6 +13,7 @@ import Login from './pages/Login'
 import { Navigate } from "react-router-dom"
 import { useAppContext } from './context/AuthContext'
 import Register from './pages/Register'
+import CheckEmailVerification from './pages/CheckEmailVerification'
 
 
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/register' element={token ? <Navigate to={'/profile'} /> : <Register />} />
           <Route path='/login' element={token ? <Navigate to={'/profile'} /> : <Login />} />
           <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />} />
+          <Route path='/checkemailverification' element={token ? <CheckEmailVerification /> : <Navigate to={'/login'} />} />
           {/* <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />}>
             <Route path='/products/' element={<Profile />} />
             <Route path='/settings/' element={<Profile />} />

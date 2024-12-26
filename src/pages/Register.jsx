@@ -83,7 +83,13 @@ const Register = () => {
           setFormData({ email: "", password: "", confirmPassword: "" })
           toast.success("Registration successfull");
           storeToken(response.data?.token);
-          nevigate("/profile/")
+          setTimeout(() => {}, 2000);
+          if (response.data.verified) {
+            nevigate('/profile')
+          }
+          else {
+            nevigate('/checkemailverification')
+          }
         }
         else {
           setIsRecieveErr(true);
