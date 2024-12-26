@@ -64,6 +64,7 @@ const Login = () => {
         const request = await fetch(`${APIROUTES.BASE_URL}${APIROUTES.AUTH_SIGNIN}`, {
           method: "POST",
           headers: { "content-type": "application/json" },
+          credentials:"include",
           body: JSON.stringify(formData)
         })
 
