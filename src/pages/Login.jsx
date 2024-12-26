@@ -62,9 +62,9 @@ const Login = () => {
 
       try {
         const request = await fetch(`${APIROUTES.BASE_URL}${APIROUTES.AUTH_SIGNIN}`, {
+        // const request = await fetch(`http://localhost:3090/api/auth/users/signin`, {
           method: "POST",
           headers: { "content-type": "application/json" },
-          credentials:"include",
           body: JSON.stringify(formData)
         })
 
