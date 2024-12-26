@@ -6,7 +6,7 @@ const Input = ({ Icon, message, onchange, value, type, name, placeholder, requir
       <legend className='ml-4 px-1'>{message}</legend>
       <div className={`input-area w-full flex items-center justify-between p-1 rounded-md ${disable ? "bg-gray-300":""}`}>
         <Icon className='text-3xl text-gray-400 border-none ' />
-        <input disabled={disable} type={type} name={name} placeholder={placeholder} required={required} value={value} onChange={onchange} className='disabled:bg-gray-300 w-[90%] border-none outline-none text-lg' />
+        <input disabled={disable} type={type} name={name} placeholder={placeholder} required={required} value={value} onChange={onchange} className='disabled:bg-gray-100 w-[90%] border-none outline-none text-lg' />
       </div>
     </fieldset>
   )

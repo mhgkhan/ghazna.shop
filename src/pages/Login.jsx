@@ -108,6 +108,7 @@ const Login = () => {
             <p className='px-3 text-gray-800'>Not have an account  <Link className=' text-blue-600' to={'/register'}>Register</Link> </p>
           </div>
 
+
           <form onSubmit={submitFrom} className="mt-2 w-full py-2 px-4">
             {validInput.email ? "" : <span className='text-red-600 text-center block mb-[-20px] w-full'>Email is not valid </span>}
             {/* email  */}
@@ -116,7 +117,7 @@ const Login = () => {
             {/* password  */}
             <Input name={'password'} disable={loading} onchange={changeInput} value={formData.password} type={'password'} Icon={MdPassword} placeholder={"Password"} message={"Password"} required={true} />
 
-            <button className={`hover:bg-white hover:text-orange-700 transition-all duration-300 hover:border-black text-lg w-full p-2 rounded-md text-center font-bold text-white bg-orange-700 my-3 outline-none border border-1 border-orange-400`}>
+            <button disabled={loading} className={ `disabled:bg-orange-200 hover:bg-white hover:text-orange-700 transition-all duration-300 hover:border-black text-lg w-full p-2 rounded-md text-center font-bold text-white bg-orange-700 my-3 outline-none border border-1 border-orange-400`}>
               Login
             </button>
 
