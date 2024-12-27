@@ -77,13 +77,7 @@ const Login = () => {
           setFormData({ email: "", password: "" })
           toast.success("Login successfull");
           storeToken(response.data?.token);
-          setTimeout(() => {}, 2000);
-          if(response.data.verified === true) {
-            nevigate('/profile')
-          } 
-          else{
-            nevigate('/checkemailverification')
-          }
+          nevigate('/profile')
         }
         else {
           setIsRecieveErr(true);
