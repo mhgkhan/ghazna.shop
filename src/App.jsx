@@ -39,14 +39,9 @@ function App() {
           <Route path='/login' element={token ? <Navigate to={'/profile'} /> : <Login />} />
           <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />} />
           <Route path='/checkemailverification' element={token ? <CheckEmailVerification /> : <Navigate to={'/login'} />} />
-          {/* <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />}>
-            <Route path='/products/' element={<Profile />} />
-            <Route path='/settings/' element={<Profile />} />
-            <Route path='/editprofile/' element={<Profile />} />
-            <Route path='/notifications/' element={<Profile />} />
-            <Route path='/history/' element={<Profile />} />
-          </Route> */}
           <Route path='/products/' element={<Login />}>
+            <Route path=':category' element={<Login />} />
+            <Route path=':all' element={<Login />} />
             <Route path=':id' element={<Login />} />
           </Route>
           <Route path='*' element={<ERRpage />} />

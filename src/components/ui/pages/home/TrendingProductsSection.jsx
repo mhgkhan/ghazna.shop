@@ -3,6 +3,7 @@ import HeadingSection from './HeadingSection'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import ProductCard from '../../../cards/ProductCard'
 import Skeleton from 'react-loading-skeleton'
+import { Link } from 'react-router-dom'
 
 
 const TrendingProductsSection = () => {
@@ -13,7 +14,8 @@ const TrendingProductsSection = () => {
   const scrollContainerRef = useRef()
 
   const [products, setProducts] = useState([])
-  const [filterProducts,setFilterProducts] = useState([])
+  const [filterProducts, setFilterProducts] = useState([])
+  const [currectCateg, setCurrectCateg] = useState("all")
 
   const forwardScroll = () => {
     scrollContainerRef.current.scrollBy(150, 0)
@@ -26,7 +28,7 @@ const TrendingProductsSection = () => {
   const fetchproduct = async () => {
     const request = await fetch(`https://dummyjson.com/products`);
     const response = await request.json();
-    
+
     setProducts(response.products)
     setFilterProducts(response.products)
   }
@@ -50,16 +52,18 @@ const TrendingProductsSection = () => {
           <IoIosArrowBack />
         </div>
         <div ref={scrollContainerRef} className="trendingProdCatButtons flex gap-3 w-full md:w-[90%] scroll-smooth mx-auto overflow-auto overflow-x-scroll">
-        <button onClick={async ()=>{
-                // await fetchproduct();
-                setProducts(filterProducts)
-              }} className="rounded-md tracking-widest  bg-black text-white mx-1 font-bold py-2 px-2">All</button>
-          
+          <button onClick={async () => {
+            // await fetchproduct();
+            setProducts(filterProducts)
+            setCurrectCateg("all")
+          }} className="rounded-md tracking-widest  bg-black text-white mx-1 font-bold py-2 px-2">All</button>
+
           {
-            Array.from(new Set(filterProducts.map(prod=>prod.category))).map((ele, ind) => {
-              return <button onClick={async ()=>{
+            Array.from(new Set(filterProducts.map(prod => prod.category))).map((ele, ind) => {
+              return <button onClick={async () => {
                 // await fetchproduct();
                 setProducts(filterProducts.filter(prod => prod.category == ele))
+                setCurrectCateg(ele)
               }} key={ind} className="rounded-md tracking-widest  bg-black text-white mx-1 font-bold py-2 px-2">{ele}</button>
             })
           }
@@ -74,7 +78,7 @@ const TrendingProductsSection = () => {
 
 
         {
-          products && products.length < 1 ? <div className='w-[40px] h-[40px] mx-auto block my-5 border border-8 border-dotted border-black rounded-full transition-all duration-500 animate-spin'> </div>:
+          products && products.length < 1 ? <div className='w-[40px] h-[40px] mx-auto block my-5 border border-8 border-dotted border-black rounded-full transition-all duration-500 animate-spin'> </div> :
             products && products.map((ele, ind) => {
               return <ProductCard id={ele.id} key={ind} title={ele.title} price={ele.price} image={ele.thumbnail} ratings={ele.rating.count} />
             })
@@ -86,7 +90,11 @@ const TrendingProductsSection = () => {
 
 
       </div>
+      <div className="w-full flex items-center justify-end">
+        
+      <Link to={`${currectCateg == "all" ? "/products" : `/products/${currectCateg}`}`} className="p-1 font-bold rounded-md hover:bg-orange-200 underline  text-orange-600 w-[100px] text-center ">See All</Link>
 
+      </div>
     </section>
   )
 }
