@@ -3,9 +3,11 @@ import { FaStar } from 'react-icons/fa'
 import { MdAddShoppingCart } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { useWishlist } from '../../context/VishlistContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ image, title, price, ratings, index, id }) => {
 
+    const nevigate = useNavigate();
 
     const { addProduct, checkProductIsSaveWishlist, removeProduct } = useWishlist();
 
@@ -24,7 +26,7 @@ const ProductCard = ({ image, title, price, ratings, index, id }) => {
 
     return (
 
-        <div className="product-card w-[140px] h-[250px] md:w-[250px] md:h-[330px] shadow-lg shadow-gray-200 rounded-lg relative bg-white">
+        <div onClick={()=>nevigate(`/product/${id}`)} className="cursor-pointer product-card w-[140px] h-[250px] md:w-[250px] md:h-[330px] shadow-lg shadow-gray-200 rounded-lg relative bg-white">
             <div className="image w-full mx-auto rounded-md h-[100px] md:h-[200px] relative">
                 <img src={image} alt="" className='w-full h-full rounded-md object-cover md:object-contain' />
 

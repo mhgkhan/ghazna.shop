@@ -14,6 +14,8 @@ import { Navigate } from "react-router-dom"
 import { useAppContext } from './context/AuthContext'
 import Register from './pages/Register'
 import CheckEmailVerification from './pages/CheckEmailVerification'
+import Products from './pages/Products/Products'
+import Product from './pages/Products/Product'
 
 
 
@@ -39,10 +41,9 @@ function App() {
           <Route path='/login' element={token ? <Navigate to={'/profile'} /> : <Login />} />
           <Route path='/profile' element={token ? <Profile /> : <Navigate to={'/login'} />} />
           <Route path='/checkemailverification' element={token ? <CheckEmailVerification /> : <Navigate to={'/login'} />} />
-          <Route path='/products/' element={<Login />}>
-            <Route path=':category' element={<Login />} />
-            <Route path=':all' element={<Login />} />
-            <Route path=':id' element={<Login />} />
+          <Route path='/products/' element={<Products />} />
+          <Route path='/product/' element={<Product />}>
+            <Route path=':id' element={<Product />} />
           </Route>
           <Route path='*' element={<ERRpage />} />
         </Routes>
