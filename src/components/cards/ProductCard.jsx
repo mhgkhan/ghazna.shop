@@ -35,7 +35,7 @@ const ProductCard = ({ image, title, price, ratings, index, id }) => {
                         <MdAddShoppingCart className='text-white font-bold text-lg' />
                     </div>
                     <div onClick={
-                        () => {
+                        (e) => {
                             setFav(!fav)
                             if (fav) {
                                 removeProduct(id, index)
@@ -43,6 +43,9 @@ const ProductCard = ({ image, title, price, ratings, index, id }) => {
                             else {
                                 addtoFav()
                             }
+                            
+                            e.stopPropagation();
+
                         }} className={`addToCart border border-1 border-orange-600 ${fav ? "bg-orange-600 text-white" : "text-black bg-white"}   w-[30px] h-[30px] rounded-lg flex items-center justify-center cursor-pointer`}>
                         <FaRegHeart className={`font-bold text-lg`} />
                     </div>
