@@ -1,11 +1,13 @@
 
 import React from 'react'
 import { FaHome, FaSearch, FaRegHeart, FaCartArrowDown, FaRegUser } from "react-icons/fa"
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 
 const Menu = () => {
 
+    // get current pathname 
+    const location = useLocation()
         
 
 
@@ -23,7 +25,7 @@ const Menu = () => {
 
                         ]).map((ele, ind) => {
                             return <Link key={ind} to={ele.link}>
-                                <div  className="menu-item py-1 px-2 text-black cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-300 flex flex-col items-center justify-center menu-item w-[45px] hover:bg-orange-600 hover:text-white font-bold rounded-md" >
+                                <div  className={`menu-item py-1 px-2 text-black cursor-pointer hover:shadow-md hover:shadow-gray-400 transition-all duration-300 flex flex-col items-center justify-center menu-item w-[45px] hover:bg-orange-600 hover:text-white ${location.pathname == ele.link ? "bg-orange-600 text-white":""} font-bold rounded-md`} >
                                 {ele.icon}
                                 <span className='text-center text-sm'>{ele.text}</span>
                             </div>
