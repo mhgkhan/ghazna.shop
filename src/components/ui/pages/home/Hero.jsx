@@ -12,29 +12,17 @@ const Hero = () => {
 
     const [currentHero, setCurrentHero] = useState(items[0])
     const [ani, setAni] = useState(false)
+    const [currentCount,setCurrentCount] = useState(0)
 
     const changeHero = ind => {
         setAni(true)
-        ref.current.classList.remove("hero-banner")
         setCurrentHero(items[ind])
         setTimeout(() => setAni(false), 500)
-        // ref.current.classList.add("hero-banner")
     }
 
-    // const [counter, setCounter] = useState(0)
-
-    // setInterval(() => {
-    //     if (counter <=2) {
-    //         changeHero(counter)
-    //         setCounter(counter + 1)
-    //     }
-    //     else {
-    //         setCounter(0)
-    //     }
-    // }, 2000);
 
     useEffect(() => {
-        changeHero(0)
+        changeHero(currentCount)
     }, [])
 
     return (
@@ -54,7 +42,10 @@ const Hero = () => {
             </div>
 
             <div className="dots flex items-center justify-center gap-2">
-                {items.map((ele, ind) => <div onClick={() => changeHero(ind)} key={ele + Math.floor(Math.random() * 5000)} className="p-2 bg-gray-500 rounded-full cursor-pointer hover:bg-gray-800"></div>)}
+                {items.map((ele, ind) => <div onClick={() => {
+                    setCurrentCount(ind)
+                    changeHero(currentCount)
+                }} key={ele + Math.floor(Math.random() * 5000)} className={`p-2 bg-gray-500 rounded-full cursor-pointer hover:bg-gray-800 ${ind==currentCount?"bg-gray-800":""}`}></div>)}
             </div>
 
         </section>
