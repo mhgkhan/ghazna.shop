@@ -4,6 +4,7 @@ import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import ProductCard from '../../../cards/ProductCard'
 import Skeleton from 'react-loading-skeleton'
 import { Link } from 'react-router-dom'
+import Loading from '../../Loading'
 
 
 const TrendingProductsSection = () => {
@@ -78,7 +79,7 @@ const TrendingProductsSection = () => {
 
 
         {
-          products && products.length < 1 ? <div className='w-[40px] h-[40px] mx-auto block my-5 border border-8 border-dotted border-black rounded-full transition-all duration-500 animate-spin'> </div> :
+          products && products.length < 1 ? <Loading /> :
             products && products.map((ele, ind) => {
               return <ProductCard id={ele.id} key={ind} title={ele.title} price={ele.price} image={ele.thumbnail} ratings={ele.rating.count} />
             })

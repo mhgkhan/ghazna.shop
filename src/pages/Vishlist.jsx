@@ -3,7 +3,10 @@ import { useWishlist } from '../context/VishlistContext'
 import { FaTrash } from 'react-icons/fa';
 import { GrLinkNext } from "react-icons/gr";
 import { VscEmptyWindow } from 'react-icons/vsc';
+import { useNavigate } from 'react-router-dom';
 const Vishlist = () => {
+
+  const navigate = useNavigate()
 
   const { products, removeProduct,fetchProducts } = useWishlist();
 
@@ -61,7 +64,7 @@ const Vishlist = () => {
                   fetchProducts()
                   setProductsArr(products)
                 }}><FaTrash /> </button>
-                <button className="bg-blue-600 text-white font-bold p-1 md:p-2 rounded-lg border-none outline-none shadow-md shadow-blue-800"><GrLinkNext /> </button>
+                <button onClick={()=> navigate(`/product/${ele.id}`) } className="bg-blue-600 text-white font-bold p-1 md:p-2 rounded-lg border-none outline-none shadow-md shadow-blue-800"><GrLinkNext /> </button>
               </div>
 
 

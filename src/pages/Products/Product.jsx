@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/ui/Loading';
 
 const Product = () => {
   const { id } = useParams();
@@ -21,12 +22,14 @@ const Product = () => {
   }, [id]);
 
   if (!product) {
-    return <div className="flex justify-center items-center h-screen">Loading...</div>;
+    return <div className="flex justify-center items-center h-screen">
+      <Loading />
+    </div>;
   }
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
-      <img src={product.thumbnail} alt={product.title} className="w-full h-64 object-cover rounded-t-lg" />
+      <img src={product.thumbnail} alt={product.title} className="w-full h-64 object-contain rounded-t-lg" />
       <div className="p-6">
         <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
         <p className="text-gray-700 mb-2">{product.description}</p>
