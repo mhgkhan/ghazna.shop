@@ -114,3 +114,21 @@ h6 {
 .trendingProdCatButtons::-webkit-scrollbar {
     display: none !important;
 }
+
+
+
+/* .hero-banner {
+    transition: 500ms;
+    animation: ani 800ms linear alternate;
+}
+
+
+@keyframes ani {
+    from {
+        transform: translateX(-300px);
+    }
+
+    to {
+        transform: translateX(0px);
+    }
+} */
