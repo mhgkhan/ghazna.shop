@@ -31,7 +31,7 @@ const Vishlist = () => {
 
           {
             productsArr && productsArr.length<=0? <h3 className='text-2xl text-center mx-auto my-5 font-bold text-orange-700'><VscEmptyWindow /> Nothing in favorite!</h3>: productsArr && productsArr.map((ele, ind) => {
-              return  <div key={ind} className="my-2 bg-white h-[70px]  md:min-h-[100px] shadow-md shadow-gray-200 rounded-md w-full flex items-center justify-between gap-2">
+              return  <div key={ind} className="my-2 bg-white min-h-[100px] w-auto  md:min-h-[100px] shadow-md shadow-gray-200 rounded-md w-full flex items-center justify-between gap-2">
 
               <div className="h-full item-imgandtitile flex items-center justify-center gap-4">
                 <img src={ele.image} alt="" className='h-full w-[70px] md:w-[100px] ' />
