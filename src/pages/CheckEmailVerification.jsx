@@ -1,10 +1,44 @@
 import React from 'react'
 import { FaEnvelope, FaExclamationTriangle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useAppContext } from '../context/AuthContext';
+import toast from 'react-hot-toast';
+import { APIROUTES } from '../configs/ApiRoutes';
 
 const CheckEmailVerification = () => {
 
-    
+
+    const { token } = useAppContext();
+
+
+    const resendEmailVerification = async () => {
+        if (!token) {
+            toast.error("some error occured")
+        }
+        else {
+            try {
+                const request = await fetch(`${APIROUTES.BASE_URL}api/auth/resendtoken`, {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify({ token })
+                })
+
+
+                const response = await request.json()
+
+                if (response.success) {
+                    toast.success("email resend sucessfully")
+                }
+                else {
+                    toast.error("some error occured")
+                }
+            } catch (error) {
+                toast.error(error.message)
+            }
+        }
+    }
 
 
     return (
@@ -17,7 +51,7 @@ const CheckEmailVerification = () => {
                 </p>
                 <FaEnvelope className="text-blue-500 text-4xl mx-auto mb-4" />
                 <p className="text-gray-700">
-                    If you did not receive the email, please check your spam folder or <Link to="/resend-verification" className="text-blue-500 underline">click here</Link> to resend the verification email.
+                    If you did not receive the email, please check your spam folder or <button onClick={resendEmailVerification} className="text-blue-500 underline">click here</button> to resend the verification email.
                 </p>
             </div>
         </main>

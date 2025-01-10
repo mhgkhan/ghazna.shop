@@ -138,7 +138,7 @@ const Register = () => {
         <button type='button' className="flex items-center justify-center gap-2 transition-all duration-300  text-lg w-full p-2 rounded-md text-center font-bold text-white bg-blue-700 my-3 outline-none border border-1 border-blue-400 hover:bg-blue-500">
           Continue with <BsGoogle />
         </button>
-  
+
 
       </div>
 

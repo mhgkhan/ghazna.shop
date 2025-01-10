@@ -26,7 +26,10 @@ export const AppContextProvider = ({ children }) => {
             })
 
             const response = await request.json();
-            if (response.success) return true
+            if (response.success) {
+                storeToken(response.data.token)
+                return true
+            }
             else return false
         } catch (error) {
             return false;
