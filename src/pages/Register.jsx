@@ -68,7 +68,7 @@ const Register = () => {
 
       try {
         const request = await fetch(`${APIROUTES.BASE_URL}${APIROUTES.AUTH_REGISTER}`, {
-          // const request = await fetch(`http://localhost:3090/api/auth/users/signin`, {
+          // const request = await fetch(`http://localhost:3090/api/auth/users/register`, {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(formData)
