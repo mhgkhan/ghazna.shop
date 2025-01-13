@@ -64,5 +64,47 @@ const Product = () => {
   );
 };
 
+const Profile = () => {
+  const [profile, setProfile] = useState(null);
 
-export default Product;
+  useEffect(() => {
+    const fetchProfile = async () => {
+      try {
+        const response = await fetch('https://dummyjson.com/users/1');
+        const json = await response.json();
+        console.log(json);
+        setProfile(json);
+      } catch (error) {
+        console.error('Error fetching the profile:', error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (!profile) {
+    return <div className="flex justify-center items-center h-screen">
+      <Loading />
+    </div>;
+  }
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 bg-white shadow-md rounded-lg">
+      <div className="flex items-center mb-6">
+        <img src={profile.image} alt={profile.firstName} className="w-24 h-24 object-cover rounded-full mr-4" />
+        <div>
+          <h1 className="text-3xl font-bold text-orange-600">{profile.firstName} {profile.lastName}</h1>
+          <p className="text-gray-700">{profile.email}</p>
+        </div>
+      </div>
+      <div className="p-6">
+        <p className="text-gray-700 mb-2">Username: {profile.username}</p>
+        <p className="text-gray-700 mb-2">Phone: {profile.phone}</p>
+        <p className="text-gray-700 mb-2">Address: {profile.address.address}, {profile.address.city}</p>
+        <p className="text-gray-700 mb-2">Company: {profile.company.name}</p>
+      </div>
+    </div>
+  );
+};
+
+export { Product, Profile };
