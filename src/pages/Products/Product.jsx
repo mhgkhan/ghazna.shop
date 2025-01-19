@@ -65,9 +65,12 @@ const Product = () => {
     // </div>
 
     <div className="container mx-auto p-5">
-      <div className="product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
+      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
 
-        <div className="product-display md:w-[50%] w-full flex flex-col items-start md:justify-between justify-center md:gap-5 gap-2">
+        <div className="relative product-display md:w-[50%] w-full flex flex-col items-start md:justify-between justify-center md:gap-5 gap-2">
+          {
+            product && product.warrantyInformation ? <div className="absolute top-0 left-0 warenty-block p-2 bg-orange-700 text-center text-white font-bold ">{product && product.warrantyInformation}</div> : ""
+          }
           <div className="product-img md:w-full md:h-[400px] w-[250px] h-[250px] mx-auto">
             <img src={product && product.thumbnail} alt={product.title} className='w-full h-full object-contain' />
           </div>
@@ -79,9 +82,9 @@ const Product = () => {
           <div className="sizes mx-auto">
             <p>Choose Size </p>
             <div className="flex items-center justify-start w-full gap-2 flex-wrap">
-              {Array.from([1,2,3,4,5]).map((ele,ind)=> {
+              {Array.from([1, 2, 3, 4, 5]).map((ele, ind) => {
                 return (
-                   <div  key={ind} className="size w-[40px] h-[40px] flex items-center justify-center text-lg border border-1 border-orange-500 cursor-pointer hover:bg-orange-200">{ele}</div>)
+                  <div key={ind} className="size w-[40px] h-[40px] flex items-center justify-center text-lg border border-1 border-orange-500 cursor-pointer hover:bg-orange-200">{ele}</div>)
               })}
             </div>
           </div>
@@ -122,6 +125,12 @@ const Product = () => {
 
 
       </div>
+
+      <div className="product-extra-info w-full h-auto mt-5">
+            {/* add the qr code and ratings star and their meta with author data please generate  */}
+            
+      </div>
+
     </div>
 
   );
