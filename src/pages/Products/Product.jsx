@@ -67,7 +67,7 @@ const Product = () => {
     // </div>
 
     <div className="container mx-auto p-5">
-      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center flex-wrap justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
+      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
 
         <div className="relative product-display md:w-[50%] w-full flex flex-col items-start md:justify-between justify-center md:gap-5 gap-2">
           {
@@ -130,7 +130,7 @@ const Product = () => {
 
       <div className="product-extra-info w-full h-auto mt-5">
         <h2 className="text-3xl text-orange-800 my-3">Reviews </h2>
-        <div className="product-reviews flex -w-full items-center justify-start gap-3">
+        <div className="product-reviews flex -w-full items-center justify-start flex-wrap gap-3">
 
 
           {
