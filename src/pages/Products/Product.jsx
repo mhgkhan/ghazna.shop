@@ -137,7 +137,7 @@ const Product = () => {
             product && product.reviews.map((ele, ind) => {
               return <div key={ind} className="review m-2 p-2">
                 <div className="stars relative">
-                  <div className="stars w-full h-full flex items-center justify-center gap-2">
+                  <div className="stars w-full h-full flex items-center justify-start gap-2">
                     <FaStar className='text-yellow-500' />
                     <FaStarHalfStroke className='text-yellow-500' />
                     <FaRegStar className='text-yellow-500' />
