@@ -67,7 +67,7 @@ const Product = () => {
     // </div>
 
     <div className="container mx-auto p-5">
-      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
+      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center flex-wrap justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
 
         <div className="relative product-display md:w-[50%] w-full flex flex-col items-start md:justify-between justify-center md:gap-5 gap-2">
           {
