@@ -67,7 +67,7 @@ const Product = () => {
     // </div>
 
     <div className="container mx-auto p-5">
-      <div className="relative product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
+      <div className="relative bg-white product-area w-full p-3 flex md:flex-row flex-col items-center justify-center gap-5 shadow-lg shadow-gray-600 rounded-lg">
 
         <div className="relative product-display md:w-[50%] w-full flex flex-col items-start md:justify-between justify-center md:gap-5 gap-2">
           {
@@ -128,14 +128,14 @@ const Product = () => {
 
       </div>
 
-      <div className="product-extra-info w-full h-auto mt-5">
-        <h2 className="text-3xl text-orange-800 my-3">Reviews </h2>
-        <div className="product-reviews flex -w-full items-center justify-start flex-wrap gap-3">
+      <div className="product-extra-info w-full h-auto mt-5  ">
+        <div className="product-reviews bg-white p-2 px-3 rounded-md shadow-md shadow-gray-300 ">
+        <h2 className="text-3xl text-orange-800 my-3 bg-">Reviews </h2>
 
-
+            <div className="products-all flex w-full items-center justify-start  flex-wrap gap-3">
           {
             product && product.reviews.map((ele, ind) => {
-              return <div key={ind} className="review m-2 p-2">
+              return <div key={ind} className="review m-2 p-2 md:border-none border-b border-b-1 border-b-gray-400">
                 <div className="stars relative">
                   <div className="stars w-full h-full flex items-center justify-start gap-2">
                     <FaStar className='text-yellow-500' />
@@ -148,24 +148,24 @@ const Product = () => {
                 <h3 className="text-xl text-black my-2">
                   {ele.comment}
                   <div className="mt-2 flex gap-2 p2">
-                    <FaUser /> <h4 className='text-gray-600 text-lg'>{ele.reviewerName}</h4>
+                    <FaUser /> <h4 className='text-gray-600 md:text-lg text-sm'>{ele.reviewerName}</h4>
                   </div>
                   <div className=" flex gap-2 p2">
-                    <MdEmail /> <h4 className='text-gray-600 text-lg'>{ele.reviewerEmail}</h4>
+                    <MdEmail /> <h4 className='text-gray-600 md:text-lg text-sm'>{ele.reviewerEmail}</h4>
                   </div>
                   <div className="flex gap-2 p2">
-                    <FaCalendar /> <h4 className='text-gray-600 text-lg'>{new Date(ele.date).toDateString()}</h4>
+                    <FaCalendar /> <h4 className='text-gray-600 md:text-lg text-sm'>{new Date(ele.date).toDateString()}</h4>
                   </div>
                 </h3>
               </div>
             })
           }
 
-
+</div>
 
         </div>
 
-        <div className="mt-4 w-full">
+        <div className="mt-4 w-full bg-white p-2 px-3 rounded-md shadow-md shadow-gray-300">
           <h2 className="text-3xl text-orange-800 my-3">Product Meta  </h2>
           <div className="data flex gap-2">
             <div className="product-meta-block">
