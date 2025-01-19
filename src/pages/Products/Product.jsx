@@ -165,6 +165,20 @@ const Product = () => {
 
         </div>
 
+        <div className="mt-4 w-full">
+          <h2 className="text-3xl text-orange-800 my-3">Product Meta  </h2>
+          <div className="data flex gap-2">
+            <div className="product-meta-block">
+              <p className='text-lg text-orange-600'>Qr Code</p>
+              <img src={product && product.meta.qrCode} alt="" className='w-[150px] h-[150px]' />
+            </div>
+          </div>
+        </div>
+
+
+
+
+
       </div>
 
     </div>
