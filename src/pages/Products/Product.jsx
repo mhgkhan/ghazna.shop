@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from '../../components/ui/Loading';
-import { FaAngleDown } from 'react-icons/fa';
+import { FaAngleDown, FaCalendar, FaRegStar, FaStar, FaUser } from 'react-icons/fa';
+import { FaStarHalfStroke } from 'react-icons/fa6';
+import { MdEmail } from 'react-icons/md';
 
 const Product = () => {
   const { id } = useParams();
@@ -127,8 +129,42 @@ const Product = () => {
       </div>
 
       <div className="product-extra-info w-full h-auto mt-5">
-            {/* add the qr code and ratings star and their meta with author data please generate  */}
-            
+        <h2 className="text-3xl text-orange-800 my-3">Reviews </h2>
+        <div className="product-reviews flex -w-full items-center justify-start gap-3">
+
+
+          {
+            product && product.reviews.map((ele, ind) => {
+              return <div key={ind} className="review m-2 p-2">
+                <div className="stars relative">
+                  <div className="stars w-full h-full flex items-center justify-center gap-2">
+                    <FaStar className='text-yellow-500' />
+                    <FaStarHalfStroke className='text-yellow-500' />
+                    <FaRegStar className='text-yellow-500' />
+                  </div>
+
+                </div>
+
+                <h3 className="text-xl text-black my-2">
+                  {ele.comment}
+                  <div className="mt-2 flex gap-2 p2">
+                    <FaUser /> <h4 className='text-gray-600 text-lg'>{ele.reviewerName}</h4>
+                  </div>
+                  <div className=" flex gap-2 p2">
+                    <MdEmail /> <h4 className='text-gray-600 text-lg'>{ele.reviewerEmail}</h4>
+                  </div>
+                  <div className="flex gap-2 p2">
+                    <FaCalendar /> <h4 className='text-gray-600 text-lg'>{new Date(ele.date).toDateString()}</h4>
+                  </div>
+                </h3>
+              </div>
+            })
+          }
+
+
+
+        </div>
+
       </div>
 
     </div>
